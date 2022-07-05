@@ -13,7 +13,7 @@
         <div th:replace="template.html :: menu" ></div>
 
         <div class="col-md-9">
-            <h2 th:text="#{settings.avatar}">Your avatar.</h2>
+            <h2 th:text="#{settings.photo}">Your photo.</h2>
             <div class="profile-block">
                 <div>
                     <div class="image-drop border-dotted" ondrop="dragAndDrop(event)" ondragover="dragEnter(event)"
@@ -21,7 +21,7 @@
                         <p class="drop-text" th:text="#{settings.drop.image}">Drop your image here.</p>
                     </div>
                     <div class="btn-vertical">
-                        <button class="btn btn-lg btn-success btn-left" th:text="#{settings.update.avatar}">Update avatar</button>
+                        <button class="btn btn-lg btn-success btn-left" th:text="#{settings.update.photo}">Update photo</button>
                     </div>
                     <div class="image-right">
                         <div class="card">
