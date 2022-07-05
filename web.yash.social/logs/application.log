@@ -2228,3 +2228,150 @@ Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'PO
 11:08:07.309 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 11:08:07.322 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 11:08:07.353 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+15:52:46.634 INFO  i.y.s.a.SocialNetworkApplicationTests - Starting SocialNetworkApplicationTests on dockervm with PID 2791 (started by root in /root/yash-social-springbootapp/web.yash.social)
+15:52:46.642 INFO  i.y.s.a.SocialNetworkApplicationTests - No active profile set, falling back to default profiles: default
+15:52:48.682 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+15:52:48.808 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 107ms. Found 4 repository interfaces.
+15:52:49.631 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$aa37f3e0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:52:50.092 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+15:52:50.923 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+15:52:51.062 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+15:52:51.214 INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.10.Final}
+15:52:51.220 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+15:52:51.571 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+15:52:51.755 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+15:52:52.668 DEBUG org.hibernate.SQL - alter table friendship drop foreign key FKlf0nqje9k08cimvk4tsnb2bgg
+15:52:52.728 DEBUG org.hibernate.SQL - alter table friendship drop foreign key FKngs34a7uptf3lmnefiigk1ktd
+15:52:52.767 DEBUG org.hibernate.SQL - alter table messages drop foreign key FK8q4vrb5gjo5j0t8gv51qj3se9
+15:52:52.792 DEBUG org.hibernate.SQL - alter table messages drop foreign key FKelhs6sn3e7n5nhphoiht9jqes
+15:52:52.812 DEBUG org.hibernate.SQL - alter table user_role drop foreign key FKa68196081fvovjhkek5m97n3y
+15:52:52.834 DEBUG org.hibernate.SQL - alter table user_role drop foreign key FK859n2jvi8ivhui0rl0esws6o
+15:52:52.854 DEBUG org.hibernate.SQL - drop table if exists friendship
+15:52:52.886 DEBUG org.hibernate.SQL - drop table if exists messages
+15:52:52.936 DEBUG org.hibernate.SQL - drop table if exists role
+15:52:52.971 DEBUG org.hibernate.SQL - drop table if exists user
+15:52:53.008 DEBUG org.hibernate.SQL - drop table if exists user_role
+15:52:53.039 DEBUG org.hibernate.SQL - create table friendship (id bigint not null auto_increment, accepted bit, user_receiver bigint, user_sender bigint, primary key (id)) engine=InnoDB
+15:52:53.090 DEBUG org.hibernate.SQL - create table messages (id integer not null auto_increment, message varchar(255), time datetime, receiver bigint, sender bigint, primary key (id)) engine=InnoDB
+15:52:53.150 DEBUG org.hibernate.SQL - create table role (id bigint not null auto_increment, name varchar(255), primary key (id)) engine=InnoDB
+15:52:53.195 DEBUG org.hibernate.SQL - create table user (id bigint not null auto_increment, date_of_birth date, username varchar(255), first_name varchar(255), image varchar(255), last_name varchar(255), password varchar(255), phone varchar(255), sex integer, primary key (id)) engine=InnoDB
+15:52:53.237 DEBUG org.hibernate.SQL - create table user_role (user_id bigint not null, role_id bigint not null) engine=InnoDB
+15:52:53.282 DEBUG org.hibernate.SQL - alter table user add constraint UK_sb8bbouer5wak8vyiiy4pf2bx unique (username)
+15:52:53.320 DEBUG org.hibernate.SQL - alter table friendship add constraint FKlf0nqje9k08cimvk4tsnb2bgg foreign key (user_receiver) references user (id)
+15:52:53.423 DEBUG org.hibernate.SQL - alter table friendship add constraint FKngs34a7uptf3lmnefiigk1ktd foreign key (user_sender) references user (id)
+15:52:53.551 DEBUG org.hibernate.SQL - alter table messages add constraint FK8q4vrb5gjo5j0t8gv51qj3se9 foreign key (receiver) references user (id)
+15:52:53.667 DEBUG org.hibernate.SQL - alter table messages add constraint FKelhs6sn3e7n5nhphoiht9jqes foreign key (sender) references user (id)
+15:52:53.787 DEBUG org.hibernate.SQL - alter table user_role add constraint FKa68196081fvovjhkek5m97n3y foreign key (role_id) references role (id)
+15:52:53.923 DEBUG org.hibernate.SQL - alter table user_role add constraint FK859n2jvi8ivhui0rl0esws6o foreign key (user_id) references user (id)
+15:52:54.055 INFO  o.h.t.s.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@45b6c666'
+15:52:54.058 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:52:55.603 INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2cdb53d6, org.springframework.security.web.context.SecurityContextPersistenceFilter@5039c2cf, org.springframework.security.web.header.HeaderWriterFilter@36ce9eaf, org.springframework.security.web.csrf.CsrfFilter@5f01361e, org.springframework.security.web.authentication.logout.LogoutFilter@47fbf95e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4144d4a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@dc3eda6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3e984100, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62ba3045, org.springframework.security.web.session.SessionManagementFilter@1f27f354, org.springframework.security.web.access.ExceptionTranslationFilter@115924ba, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1d0fc0bc]
+15:52:56.200 INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+15:52:56.266 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:52:56.336 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+15:52:57.321 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 9 endpoint(s) beneath base path ''
+15:52:57.468 INFO  i.y.s.a.SocialNetworkApplicationTests - Started SocialNetworkApplicationTests in 11.621 seconds (JVM running for 13.088)
+15:52:57.670 INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+15:52:57.676 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:52:57.682 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+15:52:57.702 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+15:56:39.708 INFO  i.y.s.a.SocialNetworkApplicationTests - Starting SocialNetworkApplicationTests on dockervm with PID 3026 (started by root in /root/yash-social-springbootapp/web.yash.social)
+15:56:39.715 INFO  i.y.s.a.SocialNetworkApplicationTests - No active profile set, falling back to default profiles: default
+15:56:41.479 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+15:56:41.567 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 79ms. Found 4 repository interfaces.
+15:56:42.315 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b0295bc6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:56:42.702 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+15:56:43.257 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+15:56:43.348 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+15:56:43.439 INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.10.Final}
+15:56:43.443 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+15:56:43.666 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+15:56:43.842 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+15:56:44.733 DEBUG org.hibernate.SQL - alter table friendship drop foreign key FKlf0nqje9k08cimvk4tsnb2bgg
+15:56:44.765 DEBUG org.hibernate.SQL - alter table friendship drop foreign key FKngs34a7uptf3lmnefiigk1ktd
+15:56:44.783 DEBUG org.hibernate.SQL - alter table messages drop foreign key FK8q4vrb5gjo5j0t8gv51qj3se9
+15:56:44.806 DEBUG org.hibernate.SQL - alter table messages drop foreign key FKelhs6sn3e7n5nhphoiht9jqes
+15:56:44.826 DEBUG org.hibernate.SQL - alter table user_role drop foreign key FKa68196081fvovjhkek5m97n3y
+15:56:44.850 DEBUG org.hibernate.SQL - alter table user_role drop foreign key FK859n2jvi8ivhui0rl0esws6o
+15:56:44.874 DEBUG org.hibernate.SQL - drop table if exists friendship
+15:56:44.905 DEBUG org.hibernate.SQL - drop table if exists messages
+15:56:44.925 DEBUG org.hibernate.SQL - drop table if exists role
+15:56:44.965 DEBUG org.hibernate.SQL - drop table if exists user
+15:56:44.991 DEBUG org.hibernate.SQL - drop table if exists user_role
+15:56:45.036 DEBUG org.hibernate.SQL - create table friendship (id bigint not null auto_increment, accepted bit, user_receiver bigint, user_sender bigint, primary key (id)) engine=InnoDB
+15:56:45.089 DEBUG org.hibernate.SQL - create table messages (id integer not null auto_increment, message varchar(255), time datetime, receiver bigint, sender bigint, primary key (id)) engine=InnoDB
+15:56:45.138 DEBUG org.hibernate.SQL - create table role (id bigint not null auto_increment, name varchar(255), primary key (id)) engine=InnoDB
+15:56:45.189 DEBUG org.hibernate.SQL - create table user (id bigint not null auto_increment, date_of_birth date, username varchar(255), first_name varchar(255), image varchar(255), last_name varchar(255), password varchar(255), phone varchar(255), sex integer, primary key (id)) engine=InnoDB
+15:56:45.238 DEBUG org.hibernate.SQL - create table user_role (user_id bigint not null, role_id bigint not null) engine=InnoDB
+15:56:45.275 DEBUG org.hibernate.SQL - alter table user add constraint UK_sb8bbouer5wak8vyiiy4pf2bx unique (username)
+15:56:45.304 DEBUG org.hibernate.SQL - alter table friendship add constraint FKlf0nqje9k08cimvk4tsnb2bgg foreign key (user_receiver) references user (id)
+15:56:45.395 DEBUG org.hibernate.SQL - alter table friendship add constraint FKngs34a7uptf3lmnefiigk1ktd foreign key (user_sender) references user (id)
+15:56:45.497 DEBUG org.hibernate.SQL - alter table messages add constraint FK8q4vrb5gjo5j0t8gv51qj3se9 foreign key (receiver) references user (id)
+15:56:45.598 DEBUG org.hibernate.SQL - alter table messages add constraint FKelhs6sn3e7n5nhphoiht9jqes foreign key (sender) references user (id)
+15:56:45.702 DEBUG org.hibernate.SQL - alter table user_role add constraint FKa68196081fvovjhkek5m97n3y foreign key (role_id) references role (id)
+15:56:45.884 DEBUG org.hibernate.SQL - alter table user_role add constraint FK859n2jvi8ivhui0rl0esws6o foreign key (user_id) references user (id)
+15:56:46.060 INFO  o.h.t.s.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@71eaef6a'
+15:56:46.064 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:56:47.583 INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34d26a68, org.springframework.security.web.context.SecurityContextPersistenceFilter@2686a801, org.springframework.security.web.header.HeaderWriterFilter@263f6e96, org.springframework.security.web.csrf.CsrfFilter@467421cc, org.springframework.security.web.authentication.logout.LogoutFilter@7a79d99c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@765eb801, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5d24703e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@296949c8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@fef2768, org.springframework.security.web.session.SessionManagementFilter@414d466e, org.springframework.security.web.access.ExceptionTranslationFilter@736a8aea, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@64e247e]
+15:56:48.175 INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+15:56:48.261 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:56:48.337 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+15:56:49.206 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 9 endpoint(s) beneath base path ''
+15:56:49.401 INFO  i.y.s.a.SocialNetworkApplicationTests - Started SocialNetworkApplicationTests in 10.327 seconds (JVM running for 11.785)
+15:56:49.598 INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+15:56:49.607 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+15:56:49.620 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+15:56:49.643 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+15:59:56.324 INFO  i.y.s.a.SocialNetworkApplicationTests - Starting SocialNetworkApplicationTests on dockervm with PID 3274 (started by root in /root/yash-social-springbootapp/web.yash.social)
+15:59:56.332 INFO  i.y.s.a.SocialNetworkApplicationTests - No active profile set, falling back to default profiles: default
+15:59:58.025 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+15:59:58.162 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 128ms. Found 4 repository interfaces.
+15:59:58.962 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$db581f6e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:59:59.395 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+15:59:59.949 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:00:00.032 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+16:00:00.124 INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.10.Final}
+16:00:00.127 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+16:00:00.360 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+16:00:00.534 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+16:00:01.469 DEBUG org.hibernate.SQL - alter table friendship drop foreign key FKlf0nqje9k08cimvk4tsnb2bgg
+16:00:01.534 DEBUG org.hibernate.SQL - alter table friendship drop foreign key FKngs34a7uptf3lmnefiigk1ktd
+16:00:01.560 DEBUG org.hibernate.SQL - alter table messages drop foreign key FK8q4vrb5gjo5j0t8gv51qj3se9
+16:00:01.617 DEBUG org.hibernate.SQL - alter table messages drop foreign key FKelhs6sn3e7n5nhphoiht9jqes
+16:00:01.693 DEBUG org.hibernate.SQL - alter table user_role drop foreign key FKa68196081fvovjhkek5m97n3y
+16:00:01.723 DEBUG org.hibernate.SQL - alter table user_role drop foreign key FK859n2jvi8ivhui0rl0esws6o
+16:00:01.961 DEBUG org.hibernate.SQL - drop table if exists friendship
+16:00:02.074 DEBUG org.hibernate.SQL - drop table if exists messages
+16:00:02.220 DEBUG org.hibernate.SQL - drop table if exists role
+16:00:02.254 DEBUG org.hibernate.SQL - drop table if exists user
+16:00:02.291 DEBUG org.hibernate.SQL - drop table if exists user_role
+16:00:02.372 DEBUG org.hibernate.SQL - create table friendship (id bigint not null auto_increment, accepted bit, user_receiver bigint, user_sender bigint, primary key (id)) engine=InnoDB
+16:00:02.535 DEBUG org.hibernate.SQL - create table messages (id integer not null auto_increment, message varchar(255), time datetime, receiver bigint, sender bigint, primary key (id)) engine=InnoDB
+16:00:02.602 DEBUG org.hibernate.SQL - create table role (id bigint not null auto_increment, name varchar(255), primary key (id)) engine=InnoDB
+16:00:02.712 DEBUG org.hibernate.SQL - create table user (id bigint not null auto_increment, date_of_birth date, username varchar(255), first_name varchar(255), image varchar(255), last_name varchar(255), password varchar(255), phone varchar(255), sex integer, primary key (id)) engine=InnoDB
+16:00:02.825 DEBUG org.hibernate.SQL - create table user_role (user_id bigint not null, role_id bigint not null) engine=InnoDB
+16:00:02.957 DEBUG org.hibernate.SQL - alter table user add constraint UK_sb8bbouer5wak8vyiiy4pf2bx unique (username)
+16:00:02.989 DEBUG org.hibernate.SQL - alter table friendship add constraint FKlf0nqje9k08cimvk4tsnb2bgg foreign key (user_receiver) references user (id)
+16:00:03.202 DEBUG org.hibernate.SQL - alter table friendship add constraint FKngs34a7uptf3lmnefiigk1ktd foreign key (user_sender) references user (id)
+16:00:03.420 DEBUG org.hibernate.SQL - alter table messages add constraint FK8q4vrb5gjo5j0t8gv51qj3se9 foreign key (receiver) references user (id)
+16:00:03.565 DEBUG org.hibernate.SQL - alter table messages add constraint FKelhs6sn3e7n5nhphoiht9jqes foreign key (sender) references user (id)
+16:00:03.783 DEBUG org.hibernate.SQL - alter table user_role add constraint FKa68196081fvovjhkek5m97n3y foreign key (role_id) references role (id)
+16:00:04.046 DEBUG org.hibernate.SQL - alter table user_role add constraint FK859n2jvi8ivhui0rl0esws6o foreign key (user_id) references user (id)
+16:00:04.362 INFO  o.h.t.s.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@2d34866a'
+16:00:04.363 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:00:05.813 INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a7fd77f, org.springframework.security.web.context.SecurityContextPersistenceFilter@1728d307, org.springframework.security.web.header.HeaderWriterFilter@231c521e, org.springframework.security.web.csrf.CsrfFilter@7b44e98e, org.springframework.security.web.authentication.logout.LogoutFilter@3e984100, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@34d26a68, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@67afc9b6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1372696b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@49faf815, org.springframework.security.web.session.SessionManagementFilter@1be3a294, org.springframework.security.web.access.ExceptionTranslationFilter@518b0c12, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@556e4588]
+16:00:06.490 INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+16:00:06.570 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16:00:06.657 INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+16:00:07.579 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 9 endpoint(s) beneath base path ''
+16:00:07.726 INFO  i.y.s.a.SocialNetworkApplicationTests - Started SocialNetworkApplicationTests in 12.093 seconds (JVM running for 13.325)
+16:00:07.921 INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+16:00:07.928 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+16:00:07.935 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:00:07.962 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
